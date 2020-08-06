@@ -6,7 +6,7 @@ public class Launcher {
 	public static int height = 750;
 
 	public static void main(String[] args) {
-		GameRenderer game = new GameRenderer("ITS A GAME", width, height);
-		game.start();
+		StartMenu StartMenu = new StartMenu();
+		StartMenu.StartDisplay();
 	}
 }
