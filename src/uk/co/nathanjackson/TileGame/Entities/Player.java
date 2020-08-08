@@ -27,6 +27,10 @@ public class Player implements Runnable {
 		if (game.GetKeyGrabber().d | game.GetKeyGrabber().right) {
 			PlayerX += 3;
 		}
+		
+		if (PlayerX < 0 || PlayerX > Launcher.width - PlayerSize) {
+			PlayerX = Launcher.width / 2;
+		}
 
 	}
 

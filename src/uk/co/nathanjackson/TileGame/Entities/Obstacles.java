@@ -10,10 +10,11 @@ public class Obstacles implements Runnable {
 
 	Random rand = new Random();
 
-	public int ObstacleX = rand.nextInt(Launcher.width);
 	public int ObstacleY = 0;
 	public int ObstacleSize = 50;
-
+	
+	public int ObstacleX = rand.nextInt(Launcher.width - ObstacleSize);
+	
 	private Thread thread;
 
 	public void run() {

@@ -42,6 +42,7 @@ public class ObstacleManager implements Runnable {
 
 				Score++;
 				ObstaclesList.remove(f);
+				System.out.println("Ur current score: " + Score);
 
 			}
 		}
