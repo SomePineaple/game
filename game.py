@@ -1,6 +1,12 @@
 import pygame
 import random
 import time
+import tkinter as tk
+
+root = tk.Tk()
+
+ScreenWidth = root.winfo_screenwidth()
+ScreenHeight = root.winfo_screenheight()
 
 BackgroundColour = (155, 155, 155)
 ScoreTextColour = (255, 255, 255)
@@ -11,8 +17,6 @@ It might make the game easier tho bc obstacles/enemies are more spread out but w
 more if u want to. I made this on a hackintosh, hence the wierd screen height, the dock is 
 annoying and autohide doesnt work lol.
 '''
-ScreenWidth = 1920
-ScreenHeight = 955
 
 #Creates a random number between 0 and 1920 so i don't have to do it like 3 times, cleans up code
 def RandY(EntityWidth):
@@ -46,7 +50,9 @@ game_over = False
 pygame.init()
 screen = pygame.display.set_mode((ScreenWidth, ScreenHeight))
 clock = pygame.time.Clock()
-font = pygame.font.Font('/Users/nathan/Downloads/ubuntu-font-family-0.83/Ubuntu-L.ttf', 35)
+font = pygame.font.Font('/Users/nathy/Desktop/ubuntu-font-family-0.83/Ubuntu-L.ttf', 35)
+pygame.display.set_caption('Nathan\'s block game')
+pygame.display.toggle_fullscreen()
 
 #function that checks if players and obstacles are colliding
 def CollisionChecker(PlayerPos, EnemyPos):
@@ -95,39 +101,56 @@ def OnEnemyCollide(EnemyList, PlayerPos):
 
 
 while True:
-     for event in pygame.event.get():
-          if event.type == pygame.QUIT:
-              pygame.quit() 
-              break
-               
-          if event.type == pygame.KEYDOWN:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit() 
+            break
+            
+        if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                      PlayerPos[0] -= PlayerWidth
-          
-          if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                      PlayerPos[0] += PlayerWidth 
-     
+                    PlayerPos[0] -= PlayerWidth
         
-     screen.fill(BackgroundColour)
-     text = 'Score:' + str(score)
-     label = font.render(text, 1, ScoreTextColour)
-     screen.blit(label, (20, 20))
-     
-     clock.tick(10 + score * 0.1)
-     UpdateEnemyPos(EnemyList)
-     DrawEnemies(EnemyList)
-     pygame.draw.rect(screen, PlayerColour, (PlayerPos[0], PlayerPos[1], PlayerWidth, PlayerHeight))
-     pygame.display.update ()
-     if PlayerPos[0] <= 0 or PlayerPos[0] + PlayerWidth >= ScreenWidth:
-         PlayerPos[0] = ScreenWidth / 2
-     if CollisionChecker(PlayerPos, EnemyPos):
-         break
-     
-     DropEnemies(EnemyList, EnemyCount)
-     
-     if OnEnemyCollide(EnemyList, PlayerPos):
-         break
+        if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                    PlayerPos[0] += PlayerWidth 
+    
+        
+    screen.fill(BackgroundColour)
+    
+    clock.tick(10 + score * 0.1)
+    UpdateEnemyPos(EnemyList)
+    DrawEnemies(EnemyList)
 
+    text = 'Score:' + str(score)
+    label = font.render(text, 1, ScoreTextColour)
+    screen.blit(label, (20, 20))
 
-time.sleep(3)
+    pygame.draw.rect(screen, PlayerColour, (PlayerPos[0], PlayerPos[1], PlayerWidth, PlayerHeight))
+    pygame.display.update ()
+    if PlayerPos[0] <= 0 or PlayerPos[0] + PlayerWidth >= ScreenWidth:
+        PlayerPos[0] = ScreenWidth / 2
+    if CollisionChecker(PlayerPos, EnemyPos):
+        break
+    
+    DropEnemies(EnemyList, EnemyCount)
+    
+    if OnEnemyCollide(EnemyList, PlayerPos):
+        break
+
+#End screen
+time.sleep(1)
+font = pygame.font.Font('/Users/nathy/Desktop/ubuntu-font-family-0.83/Ubuntu-L.ttf', 50)
+screen.fill((255, 255, 255))
+endText = 'Your final score was ' + str(score)
+
+endLabel = font.render(endText, 1, (100, 100, 100))
+
+textWidth, textHeight = font.size(endText)
+
+textX = (ScreenWidth / 2) - (textWidth / 2)
+textY = (ScreenHeight / 2) - (textHeight / 2)
+
+screen.blit(endLabel, (textX, textY))
+pygame.display.flip()
+
+time.sleep(5)
