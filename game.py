@@ -131,18 +131,4 @@ while True:
          break
 
 
-time.sleep(10)
-
-root = tk.Tk()
-root.title("Final Results")
-
-canvas = tk.Canvas(root, height = 800, width = 700, bg = '#888888')
-canvas.pack()
-
-frame = tk.Frame(root, bg = 'white')
-frame.place(relwidth = 0.8, relheight = 0.8, relx = 0.1, rely = 0.1)
-
-EndText = tk.Text(root, font = ('/Users/nathan/Downloads/ubuntu-font-family-0.83/Ubuntu-L.ttf', 90))
-EndText.insert(tk.INSERT, 'Your final score was ' + score)
-
-root.mainloop()
+time.sleep(3)
