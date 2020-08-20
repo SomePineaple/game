@@ -3,6 +3,7 @@ import random
 import time
 import tkinter as tk
 
+#All this tkinter stuff is just to get the width/height of the monitor
 root = tk.Tk()
 
 ScreenWidth = root.winfo_screenwidth()
@@ -10,13 +11,6 @@ ScreenHeight = root.winfo_screenheight()
 
 BackgroundColour = (155, 155, 155)
 ScoreTextColour = (255, 255, 255)
-
-'''
-U should change screen width and height if u have a 4k monitor and want the best experience.
-It might make the game easier tho bc obstacles/enemies are more spread out but whatever u can add 
-more if u want to. I made this on a hackintosh, hence the wierd screen height, the dock is 
-annoying and autohide doesnt work lol.
-'''
 
 #Creates a random number between 0 and 1920 so i don't have to do it like 3 times, cleans up code
 def RandY(EntityWidth):
@@ -41,12 +35,12 @@ EnemyList = [EnemyPos]
 #how many enemies in the game
 EnemyCount = 60
 
-#Initializes the display, and the clock. The clock controlles tick speed/frame rate, don't change
-
 score = 0
 
 game_over = False
 
+
+#Initializes the display, and the clock. The clock controlles tick speed/frame rate, don't change
 pygame.init()
 screen = pygame.display.set_mode((ScreenWidth, ScreenHeight))
 clock = pygame.time.Clock()
