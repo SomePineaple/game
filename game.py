@@ -1,7 +1,6 @@
 import pygame
 import random
 import time
-import tkinter as tk
 
 BackgroundColour = (155, 155, 155)
 ScoreTextColour = (255, 255, 255)
