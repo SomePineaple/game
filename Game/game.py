@@ -21,7 +21,7 @@ def RandY(EntityWidth):
 #Information about player change this to change player starting pos and other stuff like colour
 PlayerColour =  (255, 255, 255)
 PlayerPos = [ScreenWidth / 2, ScreenHeight - 70]
-Player = pygame.image.load('/Users/Nathy/Development/Python/Game/assets/Player.png')
+Player = pygame.image.load('assets/Player.png')
 
 #Enemy Information, change for different enemy I guess
 EnemyColour =  (0, 0, 0)
