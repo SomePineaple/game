@@ -1,0 +1,3 @@
+#!/bin/bash
+
+g++ -o game src/Game.cpp src/Main.cpp src/entities/Obstacle.cpp src/entities/ObstacleManager.cpp src/entities/Player.cpp -lSDL2 -lSDL2_image
