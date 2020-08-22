@@ -8,7 +8,7 @@ Obstacle::Obstacle(int width, SDL_Renderer *ren){
 
 	renderer = ren;
 
-	SDL_Surface *tmpSurface = IMG_Load ("src/assets/Obstacle.png");
+	SDL_Surface *tmpSurface = IMG_Load ("/home/Abby/eclipse-workspace/SDL_Game/src/assets/Obstacle.png");
 	if(tmpSurface == NULL){
 		std::cout << "Failed to load image" << std::endl;
 	}

@@ -9,7 +9,7 @@ ObstacleManager::ObstacleManager(int width, int height, SDL_Renderer *ren){
 
 	addToObstacles = 0;
 
-	numObstacles = 1;
+	numObstacles = 10;
 
 	Obstacle *ob1 = new Obstacle(width, renderer);
 	obList.insert(obList.begin(), ob1);
@@ -17,7 +17,8 @@ ObstacleManager::ObstacleManager(int width, int height, SDL_Renderer *ren){
 
 void ObstacleManager::Update(){
 	numObstacles = 1 + floor(addToObstacles / 10);
-	if(int(obList.size()) < numObstacles){
+	int randNumber = rand() % 100;
+	if(int(obList.size()) < numObstacles && randNumber <= 2){
 			Obstacle *ob = new Obstacle(screenWidth, renderer);
 			obList.insert(obList.end(), ob);
 	}

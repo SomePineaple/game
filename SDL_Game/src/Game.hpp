@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <iostream>
+#include <SDL2/SDL_ttf.h>
+#include <array>
 
 #ifndef GAME_H_
 #define GAME_H_
@@ -34,7 +36,7 @@ private:
     SDL_Window *window;
     SDL_Renderer *renderer;
 
-
+    void renderScore();
 };
 
 

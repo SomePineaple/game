@@ -6,7 +6,7 @@ Player::Player(int width, int height, SDL_Renderer *ren){
 	screenWidth = width;
 	xpos = (screenWidth / 2) - 25;
 	ypos = screenHeight - 70;
-	SDL_Surface *tmpSurface = IMG_Load("src/assets/Player.png");
+	SDL_Surface *tmpSurface = IMG_Load("/home/Abby/eclipse-workspace/SDL_Game/src/assets/Player.png");
 	texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
 	SDL_FreeSurface(tmpSurface);
 }
