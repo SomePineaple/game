@@ -65,13 +65,21 @@ class Level1:
     global screen
     
     pygame.init()
+    
     screen = pygame.display.set_mode((ScreenWidth, ScreenHeight))
     pygame.display.toggle_fullscreen()
+    
+    pygame.mouse.set_visible(False)
+    
     clock = pygame.time.Clock()
+    
     font = pygame.font.Font('assets/Roboto/Roboto-Thin.ttf', 35)
+    
     pygame.display.set_caption('The Persut of Happyness')
+    
     iconImg = pygame.image.load('assets/SadFace.jpeg')
     pygame.display.set_icon(iconImg)
+    
     pygame.display.flip()
     
     #Adds enemies to the enemy list
