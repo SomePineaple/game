@@ -1,2 +1,1 @@
-This is a project im working on where im trying to create the same type of game in a couple of different languadges, python was first, then java 
-my plan is to make a version in c++ as well but idk how im going to do that im not good at c++
+This is a project im working on where im trying to create the same type of game in a couple of different languadges, python was first, then java, and finally c++. The SDL_Game directory is c++, Game is python, and src/me/somepineaple/game is the java src. to compile the c++ version run the build script, then execute ./game from that directory.
