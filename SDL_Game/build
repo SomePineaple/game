@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo apt install libsdl2-2.0.0 libsdl2-image-2.0.0 libsdl2-ttf-2.0.0
+sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
 
 g++ -o game src/Game.cpp src/Main.cpp src/entities/Obstacle.cpp src/entities/ObstacleManager.cpp src/entities/Player.cpp -lSDL2 -lSDL2_image -lSDL2_ttf
